@@ -2,6 +2,7 @@ function createTitle(bookTitle) {
 // return "The Storm's Awakening"
 return `The ${bookTitle}`
 }
+
 function buildMainCharacter(name, age, pronouns) {
 var newCharacter = {
   name: name,
@@ -10,6 +11,7 @@ var newCharacter = {
 }
 return newCharacter
 }
+
 // can remove line 11 and replace line 6 with return {}
 function saveReview(firstReview, reviews) {
   var isReviewsInArray = reviews.includes(firstReview)
@@ -17,21 +19,34 @@ function saveReview(firstReview, reviews) {
       reviews.push(firstReview)
     }
 }
-// function calculatePageCount() {
-//   var book = ;
-//   var addPages = ;
-//   for ( var i = 0; i < bookPageCount.length; i+20) {
-// console.log(calculatePageCount[i])
-//   }
-//   //this should print out 340, "Teenage Ghoul" = 13 x 20 = 260
-//   // "The Teenage Ghoul" = 17 x 20 = 340
+function calculatePageCount(bookTitle) {
+  return bookTitle.length * 20;
+  }
+// var count = 0
+//  for(i = 0; i < bookTitle.length; i +=1) {
+//   count += 20
 // }
+
+function writeBook(bookTitle, bookCharacterMain, genre) {
+  var newBook = {
+    title: bookTitle,
+    mainCharacter: bookCharacterMain,
+    pageCount: calculatePageCount(bookTitle),
+    genre: genre
+  }
+  return newBook
+}
+
+function editBook(anotherBook) {
+  anotherBook.pageCount = anotherBook.pageCount * .75
+}
+
 
 module.exports = {
   createTitle,
   buildMainCharacter,
   saveReview,
-  // calculatePageCount,
-  // writeBook,
-  // editBook
+  calculatePageCount,
+  writeBook,
+  editBook
 }
